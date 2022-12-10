@@ -1,18 +1,19 @@
 # Base image
-FROM python:3.9
+FROM python:3.9-slim as base
+FROM base as builder
+# Install dependencies
+COPY requirements.txt /requirements.txt
+RUN pip install --user -r /requirements.txt
 
+
+FROM base
+# copy only the dependencies installation from the 1st stage image
+COPY --from=builder /root/.local /root/.local
 # Set working directory
 WORKDIR /app
-
 # Copy files
 COPY . /app
 
-# check current dir status
-RUN pwd
-RUN ls
 
-# Install dependencies
-RUN pip install -r requirements.txt
-
-# 執行python的指令語法
+# start the service
 CMD ["python","app.py"]
