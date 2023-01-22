@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+
+  MLWEB:
+    image: docker-flask-torch2
+    ports: 
+      - 2500:5000
+    
