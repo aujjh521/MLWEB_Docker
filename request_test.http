@@ -1,0 +1,22 @@
+###這邊的post request 是使用 Content-Type: application/x-www-form-urlencoded , 注意底下搭配的body格式
+POST http://192.168.123.120:5678/DogCatClassification_predict HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+imgurl=https://cdn.britannica.com/25/7125-050-67ACEC3C/Abyssinian-sorrel.jpg
+
+
+###這邊的post request 是使用 Content-Type: application/x-www-form-urlencoded , 注意底下搭配的body格式
+###這一組基本不會使用
+POST http://192.168.123.120:5678/DogCatClassification_predict HTTP/1.1
+Content-Type: application/json
+
+{
+    "imgurl": "https://cdn.britannica.com/25/7125-050-67ACEC3C/Abyssinian-sorrel.jpg"
+}
+
+### 純粹測試用
+GET http://192.168.123.120:5678/DogCatClassification_predict?imgurl=https://cdn.britannica.com/25/7125-050-67ACEC3C/Abyssinian-sorrel.jpg
+
+
+### 測試GOOGLE能否使用, 當作基準
+GET https://www.google.com/search?q=apple

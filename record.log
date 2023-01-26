@@ -1,0 +1,31 @@
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 741-310-971
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.123.120:5678/ (Press CTRL+C to quit)
+INFO:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Jan/2023 01:47:11] "[32mPOST /DogCatClassification_predict HTTP/1.1[0m" 302 -
+INFO:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Jan/2023 01:47:12] "[32mPOST /DogCatClassification_predict HTTP/1.1[0m" 302 -
+INFO:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Jan/2023 01:47:13] "[32mPOST /DogCatClassification_predict HTTP/1.1[0m" 302 -
+INFO:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Jan/2023 01:47:13] "[32mPOST /DogCatClassification_predict HTTP/1.1[0m" 302 -
+WARNING:werkzeug: * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+INFO:werkzeug: * Running on http://192.168.123.120:5678/ (Press CTRL+C to quit)
+DEBUG:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Jan/2023 01:49:19] "[32mPOST /DogCatClassification_predict HTTP/1.1[0m" 302 -
+DEBUG:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Jan/2023 01:49:19] "[32mPOST /DogCatClassification_predict HTTP/1.1[0m" 302 -
+DEBUG:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Jan/2023 01:49:20] "[32mPOST /DogCatClassification_predict HTTP/1.1[0m" 302 -
+DEBUG:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Jan/2023 01:49:20] "[32mPOST /DogCatClassification_predict HTTP/1.1[0m" 302 -
+DEBUG:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Jan/2023 01:49:20] "[32mPOST /DogCatClassification_predict HTTP/1.1[0m" 302 -
+DEBUG:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Jan/2023 01:49:21] "[32mPOST /DogCatClassification_predict HTTP/1.1[0m" 302 -
+DEBUG:app:400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Jan/2023 01:49:21] "[32mPOST /DogCatClassification_predict HTTP/1.1[0m" 302 -

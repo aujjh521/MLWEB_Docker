@@ -11,7 +11,7 @@ from flask import *
 
 #為了inference
 import urllib.request
-from kernels.DogCatClassification.inference import *
+#from kernels.DogCatClassification.inference import *
 
 #建Flask 的application物件, 可以設定靜態檔案的路徑處理
 app = Flask(__name__,
@@ -114,50 +114,50 @@ def DogCatClassification():
         return redirect("/")
 
 #處裡貓狗分類執行預測的路由
-@app.route("/DogCatClassification_predict",  methods=["POST"])
-def DogCatClassification_predict():
-    #利用session做權限控管,只有經過登入在session裡面存入nickname的人才可以進入member頁面
-    if "nickname" in session:
+# @app.route("/DogCatClassification_predict",  methods=["POST"])
+# def DogCatClassification_predict():
+#     #利用session做權限控管,只有經過登入在session裡面存入nickname的人才可以進入member頁面
+#     if "nickname" in session:
 
-        #save image to local folder
-        try:
-            img_url = request.form["imgurl"]
-            print('get img from url success')
-            local_path = "./public/download/" + "local-filename.jpg"
-            urllib.request.urlretrieve(img_url, local_path)
-            print(f'save image to local folder')
-        except Exception as e:
-            print(e)
-            return redirect("/GetImgFail?msg=該圖片無法被下載,請更換其他圖片網址")
+#         #save image to local folder
+#         try:
+#             img_url = request.form["imgurl"]
+#             print('get img from url success')
+#             local_path = "./public/download/" + "local-filename.jpg"
+#             urllib.request.urlretrieve(img_url, local_path)
+#             print(f'save image to local folder')
+#         except Exception as e:
+#             print(e)
+#             return redirect("/GetImgFail?msg=該圖片無法被下載,請更換其他圖片網址")
 
-        #load ML model
-        model = CNN()
-        model.load_state_dict(torch.load(pretrained_weight_path,map_location=torch.device("cpu")))
+#         #load ML model
+#         model = CNN()
+#         model.load_state_dict(torch.load(pretrained_weight_path,map_location=torch.device("cpu")))
 
-        #%%
-        #inference
-        test_transform = transforms.Compose([transforms.Resize((128, 128)),
-                            transforms.ToTensor()
-                            ])
+#         #%%
+#         #inference
+#         test_transform = transforms.Compose([transforms.Resize((128, 128)),
+#                             transforms.ToTensor()
+#                             ])
 
-        img = Image.open(local_path)
-        img = test_transform(img).unsqueeze(0) #增加一個維度for batch
-        res = model(img)
+#         img = Image.open(local_path)
+#         img = test_transform(img).unsqueeze(0) #增加一個維度for batch
+#         res = model(img)
 
-        #把predict結果mapping回初始類別
-        _, pred = torch.max(res, dim=1)
-        label_encode_mapping = {1:'dog',
-                    0:'cat'
-                    }
+#         #把predict結果mapping回初始類別
+#         _, pred = torch.max(res, dim=1)
+#         label_encode_mapping = {1:'dog',
+#                     0:'cat'
+#                     }
         
-        return render_template('DogCatClassification_result.html',
-                                member_nickname = session["nickname"],
-                                predicted_label = label_encode_mapping[pred.numpy()[0]],
-                                target_image = "/download/"+"local-filename.jpg")
+#         return render_template('DogCatClassification_result.html',
+#                                 member_nickname = session["nickname"],
+#                                 predicted_label = label_encode_mapping[pred.numpy()[0]],
+#                                 target_image = "/download/"+"local-filename.jpg")
 
-    else:
-        #沒有經過登入在session裡面存入nickname的人就不是會員,導回首頁
-        return redirect("/")
+#     else:
+#         #沒有經過登入在session裡面存入nickname的人就不是會員,導回首頁
+#         return redirect("/")
 
 
 @app.route("/signout")
@@ -168,4 +168,4 @@ def signout():
 
 if __name__ == "__main__":
     #啟動伺服器, 可透過參數port修改port的設定,預設是5000
-    app.run(host="0.0.0.0") 
+    app.run(host="0.0.0.0", port=1234) 
