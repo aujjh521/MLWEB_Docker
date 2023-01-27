@@ -2,8 +2,13 @@ version: '3.7'
 
 services:
 
-  MLWEB:
-    image: docker-flask-torch2
+  MLWEB_FRONTEND:
+    image: docker-flask-torch-frontend
     ports: 
-      - 2500:5000
-    
+      - 8080:1234
+
+  
+  MLWEB_BACKEND:
+    image: docker-flask-torch-backend
+    ports: 
+      - 5678:5678
