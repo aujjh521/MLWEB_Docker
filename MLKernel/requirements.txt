@@ -1,3 +1,4 @@
+#this for build ML inference image
 --find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.11.0+cpu
 --find-links https://download.pytorch.org/whl/torch_stable.html
