@@ -1,0 +1,26 @@
+apiVersion: apps/v1 #modified by self (for new version)
+kind: Deployment
+metadata:
+  name: helloworld-deployment
+spec:
+  replicas: 3
+  selector: #add by self (for new version)
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: k8s-demo
+        image: 105552010/k8s-demo:v1
+        ports:
+        - containerPort: 3000
+        livenessProbe: #add by self
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 15
+          timeoutSeconds: 30
+          
